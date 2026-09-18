@@ -9,11 +9,11 @@ import type {
   DirectiveInterpretation,
   BatterySpec,
   StructuredAdjustment,
-} from "../../types/domain.types.js";
+} from "../../types/domain.types.js"
 import { logger } from "../../utils/logger.js";
 
 /**
- * Sanitize and normalize a single directive interpretation.
+ * Sanitize and normalize a single directive interpretation.  
  * This is the final deterministic pass before the optimizer receives the directives.
  */
 function sanitizeDirective(
@@ -38,7 +38,7 @@ function sanitizeDirective(
     return result;
   }
 
-  const adj = result.structured_adjustment as Record<string, unknown>;
+  const adj = result.structured_adjustment as unknown as Record<string, unknown>;
 
   // Sanitize hours array (present in all non-no_op directives)
   if ("hours" in adj && Array.isArray(adj.hours)) {
@@ -88,7 +88,7 @@ function sanitizeDirective(
       break;
   }
 
-  result.structured_adjustment = adj as StructuredAdjustment;
+  result.structured_adjustment = adj as unknown as StructuredAdjustment;
   return result;
 }
 

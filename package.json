@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "node scripts/generate-module.js",
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
+    "build": "tsup",
     "start": "node dist/server.js"
   },
   "keywords": [],
@@ -34,6 +34,7 @@
     "nodemailer": "^10.0.0",
     "pg": "^8.23.0",
     "redis": "^6.2.1",
+    "tsup": "^8.5.1",
     "zod": "^4.5.4"
   },
   "devDependencies": {

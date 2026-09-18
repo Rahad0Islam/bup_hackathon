@@ -54,7 +54,7 @@ export function computeHourConstraints(
       continue;
     }
 
-    const adj = d.structured_adjustment as Record<string, unknown>;
+    const adj = d.structured_adjustment as unknown as Record<string, unknown>;
     const dHours = (adj.hours as number[]) ?? [];
 
     switch (d.directive_type) {

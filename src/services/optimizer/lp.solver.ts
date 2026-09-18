@@ -5,7 +5,6 @@
  * the 24-hour dispatch solution into HourlyPlanEntry format.
  */
 
-// @ts-expect-error — javascript-lp-solver has no TypeScript declarations
 import solver from "javascript-lp-solver";
 import type {
   HourData,
@@ -42,7 +41,7 @@ export function solveLPModel(
 ): HourlyPlanEntry[] {
   logger.info("Solving LP model...");
 
-  const result = solver.Solve(model) as Record<string, unknown>;
+  const result = solver.Solve(model as any) as Record<string, unknown>;
 
   if (!result || result.feasible === false) {
     logger.error("LP solver: infeasible problem", { result });
